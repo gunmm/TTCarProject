@@ -29,13 +29,10 @@ namespace TTCarProject
         public CLIENT_LPRC_DataEx2Callback DataEx2Callback = null;
         public CLIENT_LPRC_JpegCallback JpegCallback = null;
         public bool running1 = false;
-        bool running2 = false;
         static CLIENT_LPRC_PLATE_RESULTEX recRes1;
-        static CLIENT_LPRC_PLATE_RESULTEX recRes2;
         IntPtr pIP1 = IntPtr.Zero;
         IntPtr pIP2 = IntPtr.Zero;
         CLIENT_LPRC_DEVDATA_INFO JpegInfo1;
-        CLIENT_LPRC_DEVDATA_INFO JpegInfo2;
         byte[] chJpegStream = new byte[NativeConstants.CLIENT_LPRC_BIG_PICSTREAM_SIZE_EX + 312];
         byte[] chJpegStream2 = new byte[NativeConstants.CLIENT_LPRC_BIG_PICSTREAM_SIZE_EX + 312]; //线程可以控制控件
         //------------------------------------------------------------------------------------------------------------------------------------------------
@@ -246,7 +243,9 @@ namespace TTCarProject
         private void button3_Click_1(object sender, EventArgs e)
         {
             ////添加过车记录
-            insertToTable(0, "冀G5087", "1");
+            insertToTable(0, "冀G50187", "2");
+            insertToTable(0, "冀G50187", "1");
+
         }
 
         private void initCar()
@@ -263,7 +262,6 @@ namespace TTCarProject
                 if (pUid[0] == IntPtr.Zero)
                 {
                     OutputPrintInfo("进门相机连接失败, 密码错误或者网络不好！");
-                    //MessageBox.Show("相机1连接失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 //}
@@ -271,7 +269,6 @@ namespace TTCarProject
             else
             {
                 OutputPrintInfo("未获得视频播放窗口");
-                //MessageBox.Show("未获得视频播放窗口");
                 return;
             }
             buttonStartVideo1.Text = "结束视频";
@@ -297,13 +294,15 @@ namespace TTCarProject
 
         private void initOutSdk()
         {
+            NativeMethods.CLIENT_LPRC_QuitSDK();
             ConnectCallback = new CLIENT_LPRC_ConnectCallback(OnConnectCallback);   //连接状态的回调函数
             DataEx2Callback = new CLIENT_LPRC_DataEx2Callback(OnDataEx2Callback);  //识别结果回调函数
             JpegCallback = new CLIENT_LPRC_JpegCallback(OnJpegCallback);
-            string outCameraIp = ConfigurationManager.AppSettings["outCameraIp"].ToString();
             NativeMethods.CLIENT_LPRC_RegCLIENTConnEvent(ConnectCallback);
             NativeMethods.CLIENT_LPRC_RegDataEx2Event(DataEx2Callback);
             NativeMethods.CLIENT_LPRC_RegJpegEvent(JpegCallback);
+
+            string outCameraIp = ConfigurationManager.AppSettings["outCameraIp"].ToString();
 
             //设备连接
             if (running1 == false)
@@ -335,6 +334,7 @@ namespace TTCarProject
                     {
                         installCount++;
                         OutputPrintInfo("正尝试重新初始化" + installCount + "次！");
+                        initOutSdk();
                         Thread.Sleep(1000 * 15);
                     }
                 }
@@ -376,8 +376,16 @@ namespace TTCarProject
                 }
                 else
                 {
+
+                    if (pUid[0] != IntPtr.Zero)
+                    {
+                        ipcsdk.ICE_IPCSDK_OpenGate(pUid[0]);//开闸
+                        OutputPrintInfo("出门车辆" + strcphm + "开闸成功！");
+                    }
+                    CheckForIllegalCrossThreadCalls = false;
                     this.outPlateLabel.Text = strcphm;
-                    insertToTable(0, strcphm, "2");
+                    insertWhiteRecordToTable(strcphm, DateTime.Now, "1", "", "0", "2");
+                    //insertToTable(0, strcphm, "2");
                 }
             }
             catch (Exception ex)
@@ -638,7 +646,7 @@ namespace TTCarProject
             this.listView1.Columns.Add("类型", 93, HorizontalAlignment.Left);
             this.listView1.Columns.Add("抬杆方式", 93, HorizontalAlignment.Left);
 
-
+           
             usernameLabel.Text = MainForm.username;
 
             OutputPrintInfo("登陆成功");
@@ -1163,7 +1171,15 @@ namespace TTCarProject
 
         public void insertToTable(uint nCapTime, string strNum, string insertType)
         {
-            labelPlate.Text = strNum;
+            if (insertType == "1")
+            {
+                labelPlate.Text = strNum;
+            }
+            else if (insertType == "2")
+            {
+                this.outPlateLabel.Text = strNum;
+            }
+
             string resultNum = "";
             MySqlConnection mySqlConn = null;
 
@@ -1273,7 +1289,6 @@ namespace TTCarProject
 
         public void insertWhiteRecordToTable(string strNum, DateTime nCapTime, string goStyle, string manager, string isOffLine, string isWhile)
         {
-
             //Thread threadStatus2 = new Thread(new ParameterizedThreadStart(uploadNowPlat));
 
             //threadStatus2.Start(strNum);

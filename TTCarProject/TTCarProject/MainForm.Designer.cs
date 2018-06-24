@@ -112,7 +112,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(866, 19);
+            this.label5.Location = new System.Drawing.Point(667, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 13;
@@ -122,11 +122,10 @@
             // 
             this.labelPlate.AutoSize = true;
             this.labelPlate.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelPlate.Location = new System.Drawing.Point(919, 14);
+            this.labelPlate.Location = new System.Drawing.Point(738, 13);
             this.labelPlate.Name = "labelPlate";
-            this.labelPlate.Size = new System.Drawing.Size(106, 19);
+            this.labelPlate.Size = new System.Drawing.Size(0, 19);
             this.labelPlate.TabIndex = 14;
-            this.labelPlate.Text = "山A091333";
             // 
             // labelStatus
             // 
@@ -184,7 +183,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1041, 15);
+            this.label6.Location = new System.Drawing.Point(1255, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 23;
@@ -193,7 +192,7 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.exitButton.Location = new System.Drawing.Point(1172, 11);
+            this.exitButton.Location = new System.Drawing.Point(1390, 16);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(65, 20);
             this.exitButton.TabIndex = 24;
@@ -204,7 +203,7 @@
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(1100, 15);
+            this.usernameLabel.Location = new System.Drawing.Point(1303, 20);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(41, 12);
             this.usernameLabel.TabIndex = 25;
@@ -332,7 +331,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(866, 56);
+            this.label2.Location = new System.Drawing.Point(667, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 37;
@@ -342,11 +341,10 @@
             // 
             this.outPlateLabel.AutoSize = true;
             this.outPlateLabel.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.outPlateLabel.Location = new System.Drawing.Point(919, 52);
+            this.outPlateLabel.Location = new System.Drawing.Point(738, 54);
             this.outPlateLabel.Name = "outPlateLabel";
-            this.outPlateLabel.Size = new System.Drawing.Size(106, 19);
+            this.outPlateLabel.Size = new System.Drawing.Size(0, 19);
             this.outPlateLabel.TabIndex = 38;
-            this.outPlateLabel.Text = "山A091333";
             // 
             // label3
             // 
@@ -361,12 +359,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(494, 45);
+            this.button3.Location = new System.Drawing.Point(373, 45);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 41;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // outVideoPictureBox
@@ -375,6 +374,7 @@
             this.outVideoPictureBox.Location = new System.Drawing.Point(513, 115);
             this.outVideoPictureBox.Name = "outVideoPictureBox";
             this.outVideoPictureBox.Size = new System.Drawing.Size(439, 302);
+            this.outVideoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.outVideoPictureBox.TabIndex = 40;
             this.outVideoPictureBox.TabStop = false;
             // 
@@ -382,7 +382,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1467, 682);
+            this.ClientSize = new System.Drawing.Size(1470, 682);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.outVideoPictureBox);
             this.Controls.Add(this.label3);

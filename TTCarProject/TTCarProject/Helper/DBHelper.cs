@@ -175,7 +175,8 @@ namespace TTCarProject
         {
             if (sqlStr1 == null)
             {
-                sqlStr1 = "Host =localhost;Database=ttcarproject;Username=root;Password=root;Charset=utf8";
+                string localDataPass = ConfigurationManager.AppSettings["localDataPass"].ToString();
+                sqlStr1 = "Host =localhost;Database=ttcarproject;Username=root;Password="+ localDataPass + ";Charset=utf8";
             }
             return sqlStr1;
         }
@@ -196,7 +197,8 @@ namespace TTCarProject
         {
             if (mySqlConn == null)
             {
-                mySqlConn = new MySqlConnection("Host =localhost;Database=ttcarproject;Username=root;Password=root;Charset=utf8");
+                string localDataPass = ConfigurationManager.AppSettings["localDataPass"].ToString();
+                mySqlConn = new MySqlConnection("Host =localhost;Database=ttcarproject;Username=root;Password="+ localDataPass + ";Charset=utf8");
             }
             return mySqlConn;
         }
@@ -217,7 +219,8 @@ namespace TTCarProject
         {
             if (mySqlConn3 == null)
             {
-                mySqlConn3 = new MySqlConnection("Host =localhost;Database=ttcarproject;Username=root;Password=root;Charset=utf8");
+                string localDataPass = ConfigurationManager.AppSettings["localDataPass"].ToString();
+                mySqlConn3 = new MySqlConnection("Host =localhost;Database=ttcarproject;Username=root;Password="+localDataPass+";Charset=utf8");
             }
             return mySqlConn3;
         }

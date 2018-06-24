@@ -79,15 +79,15 @@
       <DependentUpon>FormLoading2.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\HttpHelper.cs" />
-    <Compile Include="Model\CarModel.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="obj\Model\CarModel.cs" />
+    <Compile Include="obj\Model\User.cs" />
     <Compile Include="VideoPewViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VideoPewViewForm.Designer.cs">
       <DependentUpon>VideoPewViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarRecordModel.cs" />
+    <Compile Include="obj\Model\CarRecordModel.cs" />
     <Compile Include="Helper\DBHelper.cs" />
     <Compile Include="ipcsdk.cs" />
     <Compile Include="LoginForm.cs">
@@ -102,9 +102,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\HeaderModel.cs" />
-    <Compile Include="Model\SubscribeModel.cs" />
-    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="obj\Model\HeaderModel.cs" />
+    <Compile Include="obj\Model\SubscribeModel.cs" />
+    <Compile Include="obj\Model\UserModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnRegisterConfirmForm.cs">

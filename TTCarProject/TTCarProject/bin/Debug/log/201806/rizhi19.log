@@ -1,0 +1,25 @@
+2018-06-19 13-47-26   ---   线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+2018-06-19 14-17-26   ---   线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+2018-06-19 14-21-54   ---   线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+2018-06-19 14-39-46   ---   System.InvalidOperationException: 线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.Control.SendMessage(Int32 msg, Int32 wparam, Int32 lparam)
+   在 System.Windows.Forms.ListView.InsertItemsNative(Int32 index, ListViewItem[] items)
+   在 System.Windows.Forms.ListView.InsertItems(Int32 displayIndex, ListViewItem[] items, Boolean checkHosting)
+   在 System.Windows.Forms.ListView.ListViewNativeItemCollection.Add(ListViewItem value)
+   在 System.Windows.Forms.ListView.ListViewItemCollection.Add(ListViewItem value)
+   在 System.Windows.Forms.ListView.ListViewItemCollection.Add(String text, Int32 imageIndex)
+   在 TTCarProject.MainForm.queryTodyRecord() 位置 C:\Users\92474\Desktop\TTCarProject\TTCarProject\TTCarProject\MainForm.cs:行号 1721
+2018-06-19 14-39-51   ---   线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+2018-06-19 14-40-39   ---   线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+2018-06-19 14-41-58   ---   线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+2018-06-19 14-44-37   ---   线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+2018-06-19 14-46-33   ---   线程间操作无效: 从不是创建控件“listView1”的线程访问它。
+2018-06-19 15-15-52   ---   线程间操作无效: 从不是创建控件“outPlateLabel”的线程访问它。
+2018-06-19 15-16-08   ---   线程间操作无效: 从不是创建控件“outPlateLabel”的线程访问它。
+2018-06-19 15-28-04   ---   System.InvalidCastException: 指定的转换无效。
+   在 TTCarProject.MainForm.queryNewDownLoadData(String sqlStrForQuery) 位置 C:\Users\92474\Desktop\TTCarProject\TTCarProject\TTCarProject\MainForm.cs:行号 1050
+2018-06-19 15-29-13   ---   System.InvalidCastException: 指定的转换无效。
+   在 TTCarProject.MainForm.queryNewDownLoadData(String sqlStrForQuery) 位置 C:\Users\92474\Desktop\TTCarProject\TTCarProject\TTCarProject\MainForm.cs:行号 1050
+2018-06-19 15-30-31   ---   System.InvalidCastException: 指定的转换无效。
+   在 TTCarProject.MainForm.queryNewDownLoadData(String sqlStrForQuery) 位置 C:\Users\92474\Desktop\TTCarProject\TTCarProject\TTCarProject\MainForm.cs:行号 1050
